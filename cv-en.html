@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Tran Le Viet Dat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.4;
+            color: #2d3748;
+            background: #e8e8e8;
+            padding: 15px;
+            font-size: 11px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .cv-container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            min-height: 297mm;
+        }
+
+        .header {
+            padding: 30px 35px 25px 35px;
+            border-bottom: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            position: relative;
+        }
+
+        .header::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 35px;
+            width: calc(38% - 35px);
+            height: 6px;
+            background: #1a202c;
+            clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 0 100%);
+        }
+
+        .header::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: calc(38% - 10px);
+            width: calc(62% - 25px);
+            height: 1px;
+            background: #1a202c;
+        }
+
+        .header-left h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: #1a202c;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+        }
+
+        .header-left .title {
+            color: #4a5568;
+            font-size: 15px;
+            font-weight: 400;
+            letter-spacing: 0.2px;
+        }
+
+        .header-right {
+            text-align: left;
+            font-size: 12px;
+            line-height: 1.5;
+            font-weight: 400;
+        }
+
+        .header-right div {
+            margin-bottom: 3px;
+            display: flex;
+            align-items: center;
+            color: #4a5568;
+        }
+
+        .header-right .icon {
+            width: 14px;
+            margin-right: 6px;
+            font-size: 11px;
+        }
+
+        .main-content {
+            display: flex;
+            min-height: calc(297mm - 140px);
+        }
+
+        .left-column {
+            width: 38%;
+            padding: 28px 22px 28px 28px;
+            background: #f7fafc;
+            border-right: 1px solid #e2e8f0;
+        }
+
+        .right-column {
+            width: 62%;
+            padding: 28px 28px 28px 24px;
+        }
+
+        .section {
+            margin-bottom: 26px;
+        }
+
+        .section-title {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            color: #1a202c;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .section-title::before {
+            content: "+";
+            margin-right: 7px;
+            font-weight: 600;
+            font-size: 15px;
+            color: #2d3748;
+        }
+
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #2d3748;
+            margin-left: 10px;
+        }
+
+        .about-text {
+            font-size: 11px;
+            text-align: justify;
+            line-height: 1.5;
+            color: #2d3748;
+            font-weight: 400;
+        }
+
+        .education-item {
+            margin-bottom: 20px;
+            font-size: 11px;
+        }
+
+        .education-item h4 {
+            font-weight: 600;
+            margin-bottom: 2px;
+            font-size: 11px;
+            color: #1a202c;
+        }
+
+        .education-item .location {
+            color: #718096;
+            margin-bottom: 2px;
+            font-size: 10px;
+            font-weight: 400;
+        }
+
+        .education-item .year {
+            color: #718096;
+            font-size: 10px;
+            margin-bottom: 4px;
+            font-weight: 400;
+        }
+
+        .education-item .degree {
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 11px;
+            color: #2d3748;
+        }
+
+        .education-item ul {
+            margin-left: 14px;
+            margin-top: 4px;
+        }
+
+        .education-item li {
+            margin-bottom: 2px;
+            font-size: 10px;
+            line-height: 1.4;
+            color: #4a5568;
+            font-weight: 400;
+        }
+
+        .skill-item {
+            margin-bottom: 10px;
+        }
+
+        .skill-name {
+            font-size: 11px;
+            margin-bottom: 3px;
+            font-weight: 500;
+            color: #2d3748;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 4px;
+            background: #e2e8f0;
+            border-radius: 0;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: #4a5568;
+        }
+
+        .soft-skills {
+            font-size: 10px;
+            line-height: 1.4;
+            margin-top: 10px;
+            color: #4a5568;
+            font-weight: 400;
+        }
+
+        .links-item {
+            margin-bottom: 8px;
+            font-size: 11px;
+        }
+
+        .links-item .platform {
+            font-weight: 600;
+            margin-bottom: 2px;
+            color: #2d3748;
+        }
+
+        .links-item .url {
+            color: #3182ce;
+            word-break: break-all;
+            font-size: 10px;
+            font-weight: 400;
+        }
+
+        .work-item {
+            margin-bottom: 18px;
+            font-size: 11px;
+            position: relative;
+            padding-left: 16px;
+        }
+
+        .work-item::before {
+            content: "●";
+            position: absolute;
+            left: 0;
+            top: 1px;
+            font-size: 9px;
+            color: #2d3748;
+        }
+
+        .work-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2px;
+        }
+
+        .work-company {
+            font-weight: 600;
+            font-size: 11px;
+            color: #1a202c;
+        }
+
+        .work-location {
+            color: #718096;
+            font-size: 10px;
+            margin-bottom: 3px;
+            font-weight: 400;
+        }
+
+        .work-position {
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 11px;
+            color: #2d3748;
+        }
+
+        .work-date {
+            color: #718096;
+            font-size: 10px;
+            text-align: right;
+            white-space: nowrap;
+            font-weight: 500;
+        }
+
+        .work-item ul {
+            margin-left: 0;
+            list-style: none;
+        }
+
+        .work-item li {
+            margin-bottom: 3px;
+            line-height: 1.4;
+            font-size: 10px;
+            position: relative;
+            padding-left: 14px;
+            color: #4a5568;
+            font-weight: 400;
+        }
+
+        .work-item li::before {
+            content: "●";
+            position: absolute;
+            left: 0;
+            top: 1px;
+            font-size: 7px;
+            color: #4a5568;
+        }
+
+        .course-section {
+            margin-bottom: 20px;
+        }
+
+        .course-item {
+            font-size: 11px;
+            position: relative;
+            padding-left: 16px;
+        }
+
+        .course-item::before {
+            content: "●";
+            position: absolute;
+            left: 0;
+            top: 1px;
+            font-size: 9px;
+            color: #2d3748;
+        }
+
+        .course-date {
+            font-weight: 600;
+            margin-bottom: 2px;
+            color: #1a202c;
+        }
+
+        .course-name {
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .reference-item {
+            font-size: 11px;
+            position: relative;
+            padding-left: 16px;
+        }
+
+        .reference-item::before {
+            content: "●";
+            position: absolute;
+            left: 0;
+            top: 1px;
+            font-size: 9px;
+            color: #2d3748;
+        }
+
+        .reference-name {
+            font-weight: 600;
+            margin-bottom: 3px;
+            color: #1a202c;
+        }
+
+        .reference-details {
+            color: #718096;
+            line-height: 1.4;
+            font-size: 10px;
+            font-weight: 400;
+        }
+
+        .language-item {
+            font-size: 11px;
+            margin-bottom: 8px;
+        }
+
+        .language-bar {
+            width: 100%;
+            height: 4px;
+            background: #e2e8f0;
+            border-radius: 0;
+            margin-top: 3px;
+        }
+
+        .language-progress {
+            height: 100%;
+            background: #4a5568;
+            width: 65%;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .cv-container {
+                box-shadow: none;
+                max-width: none;
+                margin: 0;
+            }
+            
+            .main-content {
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <div class="header">
+            <div class="header-left">
+                <h1>TRAN LE VIET DAT</h1>
+                <div class="title">Fullstack Developer</div>
+            </div>
+            <div class="header-right">
+                <div><span class="icon">📍</span>Thua Thien-Hue, Vietnam, Hue, Vietnam</div>
+                <div><span class="icon">📞</span>+84976513859</div>
+                <div><span class="icon">✉️</span>tlvdat.bkdn@gmail.com</div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="left-column">
+                <div class="section">
+                    <div class="section-title">About Me</div>
+                    <div class="about-text">
+                        As a highly motivated Fullstack Developer with over four years of experience in PHP, specifically with the Laravel framework, coupled with two years of proficiency in ReactJS, my career is marked by a proven track record of developing robust and scalable web applications tailored for diverse sectors such as e-commerce, logistics, digital health, and CRM. I am recognized for my strong team collaboration skills, growth mindset, and unwavering dedication to writing clean code within agile development environments. My professional aspirations are to advance into Technical Leadership, leveraging extensive technical expertise and industry experience.<br><br>
+                        Skills: Fullstack Developer with 4+ years in PHP Laravel, 2 years in ReactJS, adept in e-commerce & CRM solutions. Seeks Technical Leadership role and eager to contribute to your team.
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-title">Education</div>
+                    <div class="education-item">
+                        <h4>CodeGym Hue</h4>
+                        <div class="location">Hue</div>
+                        <div class="year">2020</div>
+                        <div class="degree">PHP FULLSTACK TRAINING PROGRAM</div>
+                        <ul>
+                            <li>Focused on PHP, MySQL, OOP, HTML, CSS, JavaScript with practical Laravel projects.</li>
+                        </ul>
+                    </div>
+                    <div class="education-item">
+                        <h4>Da Nang University of Technology</h4>
+                        <div class="location">Da Nang</div>
+                        <div class="year">2018</div>
+                        <div class="degree">BACHELOR'S DEGREE IN INFORMATION TECHNOLOGY</div>
+                        <ul>
+                            <li>Participated in student union activities, developing soft skills such as leadership and communication.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-title">Skills</div>
+                    <div class="skill-item">
+                        <div class="skill-name">PHP (Laravel)</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">JavaScript (ReactJS, NextJS)</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">HTML</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 98%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">CSS</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">C#</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 50%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">VB.NET</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 50%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">MySQL</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">PostgreSQL</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">MongoDB</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 50%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Git</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Docker</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">AWS (EC2, S3)</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 40%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Agile, Scrum</div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="soft-skills">
+                        Team collaboration, leadership, effective communication, training & mentoring
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-title">Links</div>
+                    <div class="links-item">
+                        <div class="platform">Facebook</div>
+                        <div class="url">https://www.facebook.com/dat.tr.anleviet</div>
+                    </div>
+                    <div class="links-item">
+                        <div class="platform">LinkedIn</div>
+                        <div class="url">https://www.linkedin.com/in/dat-tran-le-viet-264900211/</div>
+                    </div>
+                    <div class="links-item">
+                        <div class="platform">Github</div>
+                        <div class="url">https://github.com/dat25134</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-title">Language</div>
+                    <div class="language-item">
+                        <div>English</div>
+                        <div class="language-bar">
+                            <div class="language-progress"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-column">
+                <div class="section">
+                    <div class="section-title">Work Experience</div>
+                    
+                    <div class="work-item">
+                        <div class="work-header">
+                            <div>
+                                <div class="work-company">DEHA Viet Nam</div>
+                                <div class="work-location">Hue</div>
+                            </div>
+                            <div class="work-date">MAR 2024 - MAY 2025</div>
+                        </div>
+                        <div class="work-position">TRAINER/PROJECT MANAGER</div>
+                        <div style="font-size: 10px; color: #718096; margin-bottom: 6px; font-weight: 500;">
+                            Technology: PHP - Laravel
+                        </div>
+                        <ul>
+                            <li>Conducting technical training for junior developers on Laravel, coding standards, teamwork, and agile methodologies.</li>
+                            <li>Focused on improving both individual skills and team collaboration.</li>
+                            <li>Implemented agile methodologies to streamline project workflows and improve team adaptability to change.</li>
+                        </ul>
+                    </div>
+
+                    <div class="work-item">
+                        <div class="work-header">
+                            <div>
+                                <div class="work-company">DEHA Viet Nam</div>
+                                <div class="work-location">Hue</div>
+                            </div>
+                            <div class="work-date">MAR 2024 - MAY 2024</div>
+                        </div>
+                        <div class="work-position">PROJECT LEADER</div>
+                        <div style="font-size: 10px; color: #718096; margin-bottom: 6px; font-weight: 500;">
+                            Technology: ReactJS, Laravel | Team size: 5 people
+                        </div>
+                        <ul>
+                            <li>Headed the creation of a digital health service platform, managing user accounts and secure health data.</li>
+                            <li>Ensured system compliance with data protection standards and best practices in healthcare tech.</li>
+                        </ul>
+                    </div>
+
+                    <div class="work-item">
+                        <div class="work-header">
+                            <div>
+                                <div class="work-company">DEHA Viet Nam</div>
+                                <div class="work-location">Hue</div>
+                            </div>
+                            <div class="work-date">OCT 2023 - DEC 2023</div>
+                        </div>
+                        <div class="work-position">PROJECT LEADER</div>
+                        <div style="font-size: 10px; color: #718096; margin-bottom: 6px; font-weight: 500;">
+                            Technology: ReactJS, Laravel | Team size: 6 people
+                        </div>
+                        <ul>
+                            <li>Led the end-to-end development of an e-commerce website, overseeing requirement gathering, backend development, and deployment.</li>
+                            <li>Improved page performance and ensured system scalability.</li>
+                        </ul>
+                    </div>
+
+                    <div class="work-item">
+                        <div class="work-header">
+                            <div>
+                                <div class="work-company">DEHA Viet Nam</div>
+                                <div class="work-location">Hue</div>
+                            </div>
+                            <div class="work-date">APR 2023 - OCT 2023</div>
+                        </div>
+                        <div class="work-position">FULLSTACK DEVELOPER</div>
+                        <div style="font-size: 10px; color: #718096; margin-bottom: 6px; font-weight: 500;">
+                            Technology: ReactJS, Laravel | Team size: 4 people
+                        </div>
+                        <ul>
+                            <li>Developed a Customer Relationship Management (CRM) system combining ReactJS frontend with Laravel backend to streamline customer interaction workflows.</li>
+                        </ul>
+                    </div>
+
+                    <div class="work-item">
+                        <div class="work-header">
+                            <div>
+                                <div class="work-company">DEHA Viet Nam</div>
+                                <div class="work-location">Hue</div>
+                            </div>
+                            <div class="work-date">NOV 2022 - APR 2023</div>
+                        </div>
+                        <div class="work-position">DEVELOPER</div>
+                        <div style="font-size: 10px; color: #718096; margin-bottom: 6px; font-weight: 500;">
+                            Technology: Laravel | Team size: 3 people
+                        </div>
+                        <ul>
+                            <li>Built an Employee Management System with role-based access control, time tracking, and performance reporting.</li>
+                        </ul>
+                    </div>
+
+                    <div class="work-item">
+                        <div class="work-header">
+                            <div>
+                                <div class="work-company">DEHA Viet Nam</div>
+                                <div class="work-location">Hue</div>
+                            </div>
+                            <div class="work-date">APR 2022 - NOV 2022</div>
+                        </div>
+                        <div class="work-position">DEVELOPER</div>
+                        <div style="font-size: 10px; color: #718096; margin-bottom: 6px; font-weight: 500;">
+                            Technology: Laravel | Team size: 4 people
+                        </div>
+                        <ul>
+                            <li>Integrated the LINE messaging API into a sales application to manage users, send notifications, and deliver promotional messages and gifts via LINE.</li>
+                        </ul>
+                    </div>
+
+                    <div class="work-item">
+                        <div class="work-header">
+                            <div>
+                                <div class="work-company">DEHA Viet Nam</div>
+                                <div class="work-location">Hue</div>
+                            </div>
+                            <div class="work-date">NOV 2021 - APR 2022</div>
+                        </div>
+                        <div class="work-position">DEVELOPER</div>
+                        <div style="font-size: 10px; color: #718096; margin-bottom: 6px; font-weight: 500;">
+                            Technology: Laravel | Team size: 4 people
+                        </div>
+                        <ul>
+                            <li>Built a Sales Management System supporting inventory control, sales tracking, invoice generation, and business analytics for SMEs.</li>
+                        </ul>
+                    </div>
+
+                    <div class="work-item">
+                        <div class="work-header">
+                            <div>
+                                <div class="work-company">DEHA Viet Nam</div>
+                                <div class="work-location">Hue</div>
+                            </div>
+                            <div class="work-date">AUG 2021 - NOV 2021</div>
+                        </div>
+                        <div class="work-position">DEVELOPER</div>
+                        <div style="font-size: 10px; color: #718096; margin-bottom: 6px; font-weight: 500;">
+                            Technology: Laravel | Team size: 5 people
+                        </div>
+                        <ul>
+                            <li>Contributed to the development of a Sales and Invoicing system, including backend services and UI components for invoice management and reporting.</li>
+                        </ul>
+                    </div>
+
+                    <div class="work-item">
+                        <div class="work-header">
+                            <div>
+                                <div class="work-company">DEHA Viet Nam</div>
+                                <div class="work-location">Hue</div>
+                            </div>
+                            <div class="work-date">JUN 2021 - AUG 2021</div>
+                        </div>
+                        <div class="work-position">DEVELOPER</div>
+                        <div style="font-size: 10px; color: #718096; margin-bottom: 6px; font-weight: 500;">
+                            Technology: Laravel | Team size: 3 people
+                        </div>
+                        <ul>
+                            <li>Maintained and enhanced a Bug Management System, focusing on system stability, backend performance, and QA process automation.</li>
+                        </ul>
+                    </div>
+
+                    <div class="work-item">
+                        <div class="work-header">
+                            <div>
+                                <div class="work-company">DEHA Viet Nam</div>
+                                <div class="work-location">Hue</div>
+                            </div>
+                            <div class="work-date">FEB 2021 - JUN 2021</div>
+                        </div>
+                        <div class="work-position">DEVELOPER</div>
+                        <div style="font-size: 10px; color: #718096; margin-bottom: 6px; font-weight: 500;">
+                            Technology: Laravel | Team size: 4 people
+                        </div>
+                        <ul>
+                            <li>Developed a QA support system to monitor and reduce bug rates across internal projects, enabling real-time tracking and reporting of issues.</li>
+                        </ul>
+                    </div>
+
+                    <div class="work-item">
+                        <div class="work-header">
+                            <div>
+                                <div class="work-company">DEHA Viet Nam</div>
+                                <div class="work-location">Hue</div>
+                            </div>
+                            <div class="work-date">DEC 2020 - FEB 2021</div>
+                        </div>
+                        <div class="work-position">DEVELOPER</div>
+                        <div style="font-size: 10px; color: #718096; margin-bottom: 6px; font-weight: 500;">
+                            Technology: Laravel | Team size: 5 people
+                        </div>
+                        <ul>
+                            <li>Participated in developing an e-commerce platform with features including product management, cart, and order processing for small retail businesses.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section course-section">
+                    <div class="section-title">Course</div>
+                    <div class="course-item">
+                        <div class="course-date">FEB 2020 - AUG 2020</div>
+                        <div class="course-name">PHP FULLSTACK TRAINING PROGRAM, CODEGYM HUE</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-title">References</div>
+                    <div class="reference-item">
+                        <div class="reference-name">Nguyen Huy Nguyen</div>
+                        <div class="reference-details">
+                            DEHA Viet Nam<br>
+                            Phone Number: 0795039606<br>
+                            Email: nguyen.nh@deha-soft.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
